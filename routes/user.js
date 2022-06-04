@@ -2,13 +2,11 @@ const express = require('express');
 const Router = express.Router();
 const Article = require('../models/article')
 
-// new  form view 
 
 Router.get('/new',(req,res)=>{
      res.render('article/new')
 })
 
-// update 
 Router.get('/edit/:id', async(req,res)=>{
    const  article_date = await  Article.findById({_id:req.params.id})
    res.render('article/edit',{article:article_date})
@@ -26,7 +24,6 @@ Router.post('/edit/:id', async(req,res)=>{
 
 })
 
-// single page view 
 
 
 Router.get('/:slug',async(req,res)=>{
@@ -35,8 +32,6 @@ Router.get('/:slug',async(req,res)=>{
     res.render('article/show',{article:article})
 })
 
-
-// post 
 
 Router.post('/',(req,res)=>{
     const article = new Article({
@@ -49,7 +44,6 @@ Router.post('/',(req,res)=>{
     })
 })
 
-//  delete
 
 Router.get('/delete/:id',(req,res)=>{
    Article.findByIdAndDelete({_id:req.params.id},(err)=>{
