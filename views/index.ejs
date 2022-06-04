@@ -8,7 +8,7 @@
         <% article.forEach(element => {%>
             <div class="blog_post">
              <h1><%=  element.title.substring(0,19)   %></h1>
-            <p>  <%=  element.des.substring(0, 80).concat('...')  %>  </p>  
+            <p>  <%=  element.des.substring(0, 80).concat('... ')  %>  </p>  
 
              <h5><i><%=  element.createdAt.toLocaleDateString()  %></i></h5>
               <div class="buttons">
